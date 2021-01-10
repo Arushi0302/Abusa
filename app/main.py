@@ -10,9 +10,9 @@ CORS(app)
 def infer():
     return "Tested", 200
  
- @app.route('/getAbusiveData', methods['POST'])
- def bad_words():
-     return abuse, 200
+@app.route('/getAbusiveData', methods['POST'])
+def bad_words():
+    return abuse, 200
  
 if __name__ == "__main__":
     app.run()
