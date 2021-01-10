@@ -10,7 +10,7 @@ CORS(app)
 def infer():
     return "Tested", 200
  
-@app.route('/getAbusiveData', methods=['POST'])
+@app.route('/getAbusiveData')
 def bad_words():
     return abuse, 200
  
