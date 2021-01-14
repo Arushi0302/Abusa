@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-#from Model.load_abuse import abuse
-#from Model.model import getData
+from Model.load_abuse import abuse
+from Model.model import getData
 
 app = Flask(__name__)
 CORS(app)
@@ -16,10 +16,8 @@ def bad_words():
 
 @app.route('/modelData', methods = ['POST'])
 def data_recieve():
-    data = request.get_json()
-    print(data)
-    #data = getData(data)
-    #response = getData(data)
+    data = request.get_json(force=True)
+    data = getData(data)
     
     return jsonify(data), 200
  
