@@ -4,7 +4,7 @@ from Model.load_abuse import abuse
 from Model.model import getData
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, allow_headers='content_type')
  
  
 @app.route('/')
@@ -16,11 +16,10 @@ def bad_words():
     return abuse, 200
 
 @app.route('/modelData', methods = ['POST'])
-@cross_origin()
 def data_recieve():
     data = request.get_json()
     
-    return jsonify(getData(data)).headers.add('Access-Control-Allow-Origin', '*', 'Content-Type'), 200
+    return jsonify(getData(data)).headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization'), 200
  
 if __name__ == "__main__":
     app.run()
