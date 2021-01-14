@@ -26,8 +26,8 @@ def data_recieve():
     data = request.get_json()
     data = getData(data)
     response = jsonify({"data": "OK"})
-    response.headers.add("Access-Control-Allow-Headers", "Content-Type")
     response.headers.add("Access-Control-Allow-Origin", "*")
+    response.headers.add("Access-Control-Allow-Headers", "Content-Type")
     
     return response, 200
  
