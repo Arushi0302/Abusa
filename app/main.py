@@ -16,6 +16,7 @@ def bad_words():
     return abuse, 200
 
 @app.route('/modelData', methods = ['POST'])
+@cross_origin(origin='*')
 def data_recieve():
     data = request.get_json()
     
