@@ -5,12 +5,6 @@ from Model.model import getData
 
 app = Flask(__name__)
 CORS(app)
-CORS(app, resources={
-    r"/modelData": {
-        "origins": "*"
-        "Access-Control-Allow-Headers": "content-type"
-    }
-})
  
 data = []
  
@@ -32,7 +26,7 @@ def data_recieve():
     data = request.get_json()
     data = getData(data)
     
-    return "Ok", 200
+    return jsonify({"data": "OK"}), 200
  
 if __name__ == "__main__":
     app.run()
