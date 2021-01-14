@@ -20,7 +20,7 @@ def bad_words():
 def data_recieve():
     data = request.get_json()
     
-    return jsonify(getData(data)).headers.add('Access-Control-Allow-Origin', '*'), 200
+    return jsonify(getData(data)).headers.add('Access-Control-Allow-Origin', '*', 'Content-Type'), 200
  
 if __name__ == "__main__":
     app.run()
