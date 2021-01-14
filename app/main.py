@@ -4,7 +4,11 @@ from Model.load_abuse import abuse
 from Model.model import getData
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={
+    r"/*": {
+        "origins": "*"
+    }
+})
  
 data = []
  
