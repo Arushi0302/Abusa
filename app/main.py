@@ -17,11 +17,9 @@ def bad_words():
 @app.route('/modelData', methods = ['POST'])
 def data_recieve():
     global data
-    data = request.get_json()
+    data = request.args.get('body', None)
     data = getData(data)
     response = jsonify(data)
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    response.headers.add("Access-Control-Allow-Headers", "Content-Type")
     
     return response, 200
  
