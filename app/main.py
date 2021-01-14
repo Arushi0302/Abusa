@@ -19,7 +19,7 @@ def bad_words():
 def data_recieve():
     data = request.get_json()
     
-    return getData(data), 200
+    return jsonify(getData(data)), 200
  
 if __name__ == "__main__":
     app.run()
