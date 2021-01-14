@@ -6,8 +6,6 @@ from Model.model import getData
 app = Flask(__name__)
 CORS(app)
  
-data = []
- 
 @app.route('/')
 def infer():
     return "Tested", 200
@@ -22,14 +20,9 @@ def model_data():
 
 @app.route('/modelData', methods = ['POST'])
 def data_recieve():
-    global data
     data = request.get_json()
-    data = getData(data)
-    response = jsonify({"data": "OK"})
-    response.headers.add("Access-Control-Allow-Origin", "*")
-    response.headers.add("Access-Control-Allow-Headers", "Content-Type")
     
-    return response, 200
+    return getData(data), 200
  
 if __name__ == "__main__":
     app.run()
