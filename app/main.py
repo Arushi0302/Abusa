@@ -25,8 +25,11 @@ def data_recieve():
     global data
     data = request.get_json()
     data = getData(data)
+    response = jsonify({"data": "OK"})
+    response.headers.add("Access-Control-Allow-Headers", "Content-Type")
+    response.headers.add("Access-Control-Allow-Origin", "*")
     
-    return jsonify({"data": "OK"}).headers.add("Access-Control-Allow-Headers": "Content-Type", "Access-Control-Allow-Origin": "*"), 200
+    return response, 200
  
 if __name__ == "__main__":
     app.run()
