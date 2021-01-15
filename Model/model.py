@@ -90,7 +90,7 @@ def get_prediction(sentance):
     else:
       return 1
 
-def model(mydictList):
+def run_model(mydictList):
     #manupulations here.
     for di in mydictList:
       r = ' '.join(di["data"])
@@ -99,4 +99,4 @@ def model(mydictList):
     return manupulated_data
 
 def getData(data):
-    return model(data)
+    return run_model(data)
